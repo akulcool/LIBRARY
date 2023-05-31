@@ -19,14 +19,11 @@ include("database.php");
 
   <style type="text/css">
     body {
-      background-image: linear-gradient(135deg, #edea32 10%, #67f097 100%);
+      background-image: url("back.png");
+      background-size: cover;
+      backdrop-filter: blur(5px) brightness(50%);
       padding: 20px;
       text-align: center;
-    }
-
-    #navbar {
-      background-image: linear-gradient(135deg, #edea32 10%, #67f097 100%);
-      border: 1px solid black;
     }
 
     h5, p {
@@ -46,9 +43,8 @@ include("database.php");
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
     <div class="container-fluid">
-  
       <a class="navbar-brand" href="home.php">
         <span class="material-symbols-outlined">home</span>
       </a>
@@ -79,49 +75,53 @@ include("database.php");
 
     </div>
   </nav>
-  <br><br>
+  <br>
 
-  <h1 class="bg-dark" style="padding: 10px; color: rgb(201, 232, 22)">Let's find a room for you...</h1>
-  <hr>
+  <h1 style="padding: 10px; color: white"><i>Let's find you a room...</i></h1>
+  <br><br>
   
-  <h4>AC Hall</h4>
+  <h4 style="color: lightgrey;">AC Hall</h4>
   <p>
-    <h5 style="color: rgb(82, 82, 82)">
+    <h5 style="color: white;">
       <?php $x=$_SESSION['count']; echo "$x";?> 
       Seats Free
     </h5>
   </p>
-  <a href="ac.php" class="btn btn-dark">See Allocation</a>
-  <br><hr>
+  &nbsp;&nbsp;
+  <a href="ac.php" class="btn btn-sm btn-warning">See Allocation</a>
+  <br><hr style="color: white;">
 
-  <h4>Non-AC Hall</h4>
+  <h4 style="color: lightgrey;">Non-AC Hall</h4>
   <p>
-    <h5 style="color: rgb(82, 82, 82)">
+    <h5 style="color: white;">
       <?php $x=$_SESSION['count2']; echo "$x";?> 
       Seats Free
     </h5>
   </p>
-  <a href="nonac.php" class="btn btn-dark">See Allocation</a>
-  <br><hr>
+  &nbsp;&nbsp;
+  <a href="nonac.php" class="btn btn-sm btn-warning">See Allocation</a>
+  <br><hr style="color: white;">
 
-  <h4>Reading Hall</h4>
+  <h4 style="color: lightgrey;">Reading Hall</h4>
   <p>
-    <h5 style="color: rgb(82, 82, 82)">
+    <h5 style="color: white;">
       <?php $x=$_SESSION['count3']; echo "$x";?> 
       Seats Free
     </h5>
   </p>
-  <a href="rh.php" class="btn btn-dark">See Allocation</a>
-  <br><hr>
+  &nbsp;&nbsp;
+  <a href="rh.php" class="btn btn-sm btn-warning">See Allocation</a>
+  <br><hr style="color: white;">
 
-  <h4>Discussion Room</h4>
+  <h4 style="color: lightgrey;">Discussion Room</h4>
   <p>
-    <h5 style="color: rgb(82, 82, 82)">
+    <h5 style="color: white;">
       <?php   $x=$_SESSION['count4']; echo "$x";?> 
       Seats Free
     </h5>
   </p>
-  <a href="dr.php" class="btn btn-dark">See Allocation</a>
+  &nbsp;&nbsp;
+  <a href="dr.php" class="btn btn-sm btn-warning">See Allocation</a>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"

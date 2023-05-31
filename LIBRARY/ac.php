@@ -1,9 +1,9 @@
-<?php
+<!-- <?php
 
 session_start();
 include("database.php");
 
-?>
+?> -->
 
 <!doctype html>
 <html lang="en">
@@ -20,11 +20,9 @@ include("database.php");
 
   <style type="text/css">
     body {
-      background-image: linear-gradient(135deg, #81b6ff 10%, #6e3793 100%);
-    }
-
-    #navbar {
-      background-image: linear-gradient(135deg, #81b6ff 10%, #6e3793 100%);
+      background-image: url("back.png");
+      background-size: cover;
+      backdrop-filter: blur(4px) brightness(50%);
     }
   </style>
 
@@ -64,7 +62,7 @@ include("database.php");
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
     <div class="container-fluid">
 
       <a class="navbar-brand" href="home.php">
@@ -95,13 +93,12 @@ include("database.php");
         </form>
         
       </div>
-
     </div>
   </nav>
 
 
 
-<?php
+<!-- <?php
 
 $servername = "localhost";
 $username = "root";
@@ -127,15 +124,15 @@ else {
   $count = 0;
 }
 
-?>
+?> -->
 
 
 
-  <h1 align="center" style="color: rgb(255, 232, 255)">
+  <h1 align="center" style="color: white">
     <?php echo "$count"; ?> Seats Are Available Here
   </h1>
-  <hr style="color: rgb(255, 232, 255)">
-  <br><br><br><br><br>
+  <hr style="color: white">
+  <br><br><br><br>
 
   <div id="circle-container">
     <?php for ($i = 1; $i <= $count; $i++) : ?>
@@ -147,33 +144,35 @@ else {
   </div>
 
 
-  <br><br><br><br><br>
-  <hr style="color: rgb(255, 232, 255)">
+  <br><br><br>
+  <hr style="color: white">
   <form method="get">
-    <h2 align="center" style="color: rgb(255, 232, 255)">
+    <h2 align="center" style="color: white">
       Enter ID of Seat Occupied:
     </h2>
-    <div style="text-align: center;">
+    <div style="text-align: center; display: flex; justify-content: center; align-items: center;">
       <input type="number" name="id">
-      <button class="btn btn-info" name="occupy">Occupy</button>
+      &nbsp;&nbsp;
+      <button class="btn btn-sm btn-warning" name="occupy">Occupy</button>
     </div>
   </form>
-  <hr style="color: rgb(255, 232, 255)">
+  <hr style="color: white">
 
   <form method="get">
-    <h2 align="center" style="color: rgb(255, 232, 255)">
+    <h2 align="center" style="color: white; padding: 5px">
       Enter ID of Seat Vacated:
     </h2>
-    <div style="text-align: center;">
+    <div style="text-align: center; display: flex; justify-content: center; align-items: center;">
       <input type="number" name="id2">
-      <button class="btn btn-info" name="v">Vacate</button>
+      &nbsp;&nbsp;
+      <button class="btn btn-sm btn-warning" name="v">Vacate</button>
     </div>
   </form>
-  <hr style="color: rgb(255, 232, 255)">
+  <hr style="color: white">
 
 
-
-<?php
+  
+<!-- <?php
 
 if (isset($_GET['occupy'])) {
   $sid = $_GET['id'];
@@ -214,7 +213,10 @@ else if (isset($_GET['v'])) {
 
 $conn->close();
 
-?>
+?> -->
+
+
+
 </body>
 
 </html>
