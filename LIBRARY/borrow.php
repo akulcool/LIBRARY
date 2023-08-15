@@ -1,9 +1,9 @@
-<!-- <?php
+ <?php
 
   session_start();
 include("database.php");
 
-?> -->
+?> 
 
 <!doctype html>
 <html lang="en">
@@ -70,9 +70,22 @@ include("database.php");
   </nav>
 
 
+<form class="row g-3" method="get">
+ 
+  <div class="col-auto">
+    <label for="inputPassword2" class="visually-hidden">Password</label>
+    <input type="text" class="form-control" id="inputPassword2" placeholder="search here..." name="key">
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3" name="search">Search</button>
+  </div>
+</form>
 
-<!-- <?php
 
+
+
+
+ <?php
 $sql="SELECT *FROM Books WHERE book_status = 'available' ";
 $result=mysqli_query($conn,$sql);
 
@@ -84,11 +97,10 @@ if(mysqli_num_rows($result)>0){
     echo "<div class='post'>";
     echo "<p class= 'name' style='color:white;' name='book_name'> ".$row["book_name"]. "</h4>    "                           ;
    
-  echo "<p class= 'label' name='label'> Label- ".$row["Label"]."</p>";
-  echo "<p class= 'id' name='id'> ID- ".$row["book_id"]."</p>";
+  echo "<p class= 'label' name='label' style='color:white;'> Label- ".$row["Label"]."</p>";
+  echo "<p class= 'id' name='id' style='color:white;'> ID- ".$row["book_id"]."</p>";
   echo"</div>";
-
-?> -->
+?> 
 
 
 
@@ -97,9 +109,11 @@ if(mysqli_num_rows($result)>0){
 
 
 
-<!-- <?php
+
+
+ <?php
 }}
-?> -->
+?> 
 
   <div class="return" align="center">
     <form method="get">
@@ -127,10 +141,48 @@ if(mysqli_num_rows($result)>0){
 
 </html>
 
+ <?php
 
-<!-- <?php
+
+if(isset($_GET["search"])){
+  $key=$_GET["key"];
+
+  $sql="SELECT * FROM Books WHERE book_name LIKE '".$key."%' AND book_status='available'";
+  $result=mysqli_query($conn,$sql);
+  
+ if(mysqli_num_rows($result)>0){
+  echo"<br>";
+echo"<h1 color='white;'> Your Search Results : </h1>";
+  while($row=mysqli_fetch_assoc($result)){
+    
+    echo "<div class='post'>";
+    echo "<p class= 'name' style='color:white;' name='book_name'> ".$row["book_name"]. "</h4>";                           
+   
+   echo "<p class= 'label' name='label' style='color:white;'> Label- ".$row["Label"]."</p>";
+
+   echo "<p class= 'id' name='id' style='color:white;'> ID- ".$row["book_id"]."</p>";
+    
+    
+    echo"</div>";
+
+    ?>
+  <a href="borrow.php?Borrow=<?php echo $row["book_name"]; ?>" class="btn btn-info">Borrow</a>
+  <br>
+  <br>
+
+  <?php
+  }
+  
+  
+
+  }
+
+}
+?>
 
 
+
+ <?php
 
 
 if(isset($_GET["Borrow"])){
@@ -141,22 +193,15 @@ if(isset($_GET["Borrow"])){
     echo "error occured";
   }
   else{
-    header("Location:http://localhost/LIBRARY%20/done.php ");
+    echo "<script>window.location.href='done.php';</script>";
+    exit;
+
   }
-
-
-
 }
-
-
 ?>
 
 
 <?php
-
-
-
-
 if(isset($_GET["submit"])){
   $bid=$_GET["bid"];
 
@@ -165,12 +210,16 @@ if(isset($_GET["submit"])){
     echo "error occured";
   }
   else{
-    header("Location:http://localhost/LIBRARY%20/ret.php ");
+     echo "<script>window.location.href='ret.php';</script>";
+    exit;
+
   }
 
 
 
 }
 
+?> 
 
-?> -->
+
+
